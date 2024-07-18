@@ -1,0 +1,1339 @@
+[
+    {
+        "id": "e0563d8b3e3f584c",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "321cdeb7eb5f38e3",
+        "type": "inject",
+        "z": "e0563d8b3e3f584c",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 180,
+        "y": 1120,
+        "wires": [
+            [
+                "69f81e88b83a3774"
+            ]
+        ]
+    },
+    {
+        "id": "69f81e88b83a3774",
+        "type": "debug",
+        "z": "e0563d8b3e3f584c",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 410,
+        "y": 1120,
+        "wires": []
+    },
+    {
+        "id": "4db2e1d8135beb6c",
+        "type": "mqtt in",
+        "z": "e0563d8b3e3f584c",
+        "name": "",
+        "topic": "unife/gruppo2/sensori/#",
+        "qos": "2",
+        "datatype": "json",
+        "broker": "6e31311973cef7bc",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 140,
+        "y": 240,
+        "wires": [
+            [
+                "d3e71382878f3054",
+                "e88af364f3732c66"
+            ]
+        ]
+    },
+    {
+        "id": "d3e71382878f3054",
+        "type": "debug",
+        "z": "e0563d8b3e3f584c",
+        "name": "debug 1",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 200,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "e88af364f3732c66",
+        "type": "switch",
+        "z": "e0563d8b3e3f584c",
+        "name": "",
+        "property": "topic",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": " ",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": " ",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": " ",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": " ",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": " ",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": " ",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": " ",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": " ",
+                "vt": "str"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 8,
+        "x": 350,
+        "y": 240,
+        "wires": [
+            [
+                "7bba5d8c804a9bec",
+                "bcb2148248689e1c"
+            ],
+            [
+                "0a918aceeca09026",
+                "2a2edee9b8fb6066"
+            ],
+            [
+                "f6d6db9c31a76e95",
+                "2f18e9bbd543bb56"
+            ],
+            [
+                "c7204b2c39cf852b",
+                "3df59435ffa045bb",
+                "a8435e22bb6a8365",
+                "5a9f41c72c758f5e",
+                "1a4e075d4f471f73",
+                "88c85c8d21eecff4"
+            ],
+            [
+                "9d2555fb02d12708",
+                "d1d27697991cd07c"
+            ],
+            [
+                "92c5c8e555b6194b",
+                "22e79e84582d985b",
+                "fb417d091dd0eacd",
+                "7626e9a395adc938",
+                "0f24ee5087d0b287",
+                "3e8eda49235e4100"
+            ],
+            [
+                "98c460153540b1ec",
+                "77ebf2047197692c"
+            ],
+            [
+                "ec43e21b89dc35e6"
+            ]
+        ]
+    },
+    {
+        "id": "7bba5d8c804a9bec",
+        "type": "ui_gauge",
+        "z": "e0563d8b3e3f584c",
+        "name": "",
+        "group": "eef7d8cff402365d",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Temperatura",
+        "label": "{{payload.unit}}",
+        "format": "{{payload.value}}",
+        "min": "-40",
+        "max": "120",
+        "colors": [
+            "#8fdba6",
+            "#38bc72",
+            "#308862"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 690,
+        "y": 20,
+        "wires": []
+    },
+    {
+        "id": "4d027ff921886eb0",
+        "type": "ui_chart",
+        "z": "e0563d8b3e3f584c",
+        "name": "",
+        "group": "eef7d8cff402365d",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "label": "Temperature History",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "40",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 1020,
+        "y": 60,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "bcb2148248689e1c",
+        "type": "function",
+        "z": "e0563d8b3e3f584c",
+        "name": "function 1",
+        "func": "msg.payload = msg.payload.value;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 740,
+        "y": 60,
+        "wires": [
+            [
+                "4d027ff921886eb0"
+            ]
+        ]
+    },
+    {
+        "id": "0a918aceeca09026",
+        "type": "ui_gauge",
+        "z": "e0563d8b3e3f584c",
+        "name": "",
+        "group": "f855aeea23398878",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Umidità",
+        "label": "{{payload.unit}}",
+        "format": "{{payload.value}}",
+        "min": "0",
+        "max": "100",
+        "colors": [
+            "#a8c6e6",
+            "#276b96",
+            "#082478"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 720,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "f6d6db9c31a76e95",
+        "type": "ui_gauge",
+        "z": "e0563d8b3e3f584c",
+        "name": "",
+        "group": "df5a72af66c0a374",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "CO2",
+        "label": "{{payload.unit}}",
+        "format": "{{payload.value}}",
+        "min": "10",
+        "max": "10000",
+        "colors": [
+            "#f8dd30",
+            "#e68600",
+            "#d12929"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 730,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "2a2edee9b8fb6066",
+        "type": "function",
+        "z": "e0563d8b3e3f584c",
+        "name": "function 2",
+        "func": "msg.payload = msg.payload.value;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 740,
+        "y": 140,
+        "wires": [
+            [
+                "a06a468b659772e6"
+            ]
+        ]
+    },
+    {
+        "id": "2f18e9bbd543bb56",
+        "type": "function",
+        "z": "e0563d8b3e3f584c",
+        "name": "function 3",
+        "func": "msg.payload = msg.payload.value;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 740,
+        "y": 220,
+        "wires": [
+            [
+                "037b249a792d7e38"
+            ]
+        ]
+    },
+    {
+        "id": "a06a468b659772e6",
+        "type": "ui_chart",
+        "z": "e0563d8b3e3f584c",
+        "name": "",
+        "group": "f855aeea23398878",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "label": "Humidity History",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "100",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 960,
+        "y": 140,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "037b249a792d7e38",
+        "type": "ui_chart",
+        "z": "e0563d8b3e3f584c",
+        "name": "",
+        "group": "df5a72af66c0a374",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "label": "CO2 History",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "10",
+        "ymax": "10000",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 950,
+        "y": 220,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "c7204b2c39cf852b",
+        "type": "ui_gauge",
+        "z": "e0563d8b3e3f584c",
+        "name": "",
+        "group": "5b2e0d550e98d9c2",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "PM 1.0",
+        "label": "{{payload.unit}}",
+        "format": "{{payload.value}}",
+        "min": 0,
+        "max": "12",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 960,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "3df59435ffa045bb",
+        "type": "function",
+        "z": "e0563d8b3e3f584c",
+        "name": "function 4",
+        "func": "msg.payload = msg.payload.value;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 960,
+        "y": 340,
+        "wires": [
+            [
+                "9194d3c2c134ee73"
+            ]
+        ]
+    },
+    {
+        "id": "9194d3c2c134ee73",
+        "type": "ui_chart",
+        "z": "e0563d8b3e3f584c",
+        "name": "",
+        "group": "5b2e0d550e98d9c2",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "label": "PM 1.0 History",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "12",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 1200,
+        "y": 340,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "9d2555fb02d12708",
+        "type": "ui_gauge",
+        "z": "e0563d8b3e3f584c",
+        "name": "",
+        "group": "3b55fd44616cf308",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "CO",
+        "label": "{{payload.unit}}",
+        "format": "{{payload.value}}",
+        "min": 0,
+        "max": "1000",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 950,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "d1d27697991cd07c",
+        "type": "function",
+        "z": "e0563d8b3e3f584c",
+        "name": "function 7",
+        "func": "msg.payload = msg.payload.value;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 960,
+        "y": 640,
+        "wires": [
+            [
+                "58136d491c1aa0af"
+            ]
+        ]
+    },
+    {
+        "id": "58136d491c1aa0af",
+        "type": "ui_chart",
+        "z": "e0563d8b3e3f584c",
+        "name": "",
+        "group": "3b55fd44616cf308",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "label": "CO History",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "1000",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 1210,
+        "y": 640,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "92c5c8e555b6194b",
+        "type": "ui_gauge",
+        "z": "e0563d8b3e3f584c",
+        "name": "",
+        "group": "f8ae0a886764667f",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "UVA",
+        "label": "{{payload.unit}}",
+        "format": "{{payload.value}}",
+        "min": 0,
+        "max": "30",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 970,
+        "y": 740,
+        "wires": []
+    },
+    {
+        "id": "22e79e84582d985b",
+        "type": "function",
+        "z": "e0563d8b3e3f584c",
+        "name": "function 8",
+        "func": "msg.payload = msg.payload.value;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 960,
+        "y": 780,
+        "wires": [
+            [
+                "09ac6b460cf59d3c"
+            ]
+        ]
+    },
+    {
+        "id": "09ac6b460cf59d3c",
+        "type": "ui_chart",
+        "z": "e0563d8b3e3f584c",
+        "name": "",
+        "group": "f8ae0a886764667f",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "label": "UVA History",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "30",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 1250,
+        "y": 780,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "a8435e22bb6a8365",
+        "type": "ui_gauge",
+        "z": "e0563d8b3e3f584c",
+        "name": "",
+        "group": "5b2e0d550e98d9c2",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "PM 2.5",
+        "label": "{{payload.unit}}",
+        "format": "{{payload.value}}",
+        "min": 0,
+        "max": "12",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 960,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "5a9f41c72c758f5e",
+        "type": "function",
+        "z": "e0563d8b3e3f584c",
+        "name": "function 5",
+        "func": "msg.payload = msg.payload.value;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 960,
+        "y": 420,
+        "wires": [
+            [
+                "7fa84cabed189648"
+            ]
+        ]
+    },
+    {
+        "id": "7fa84cabed189648",
+        "type": "ui_chart",
+        "z": "e0563d8b3e3f584c",
+        "name": "",
+        "group": "5b2e0d550e98d9c2",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "label": "PM 2.5 History",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "12",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 1200,
+        "y": 420,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "1a4e075d4f471f73",
+        "type": "ui_gauge",
+        "z": "e0563d8b3e3f584c",
+        "name": "",
+        "group": "5b2e0d550e98d9c2",
+        "order": 6,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "PM 10",
+        "label": "{{payload.unit}}",
+        "format": "{{payload.value}}",
+        "min": 0,
+        "max": "12",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 950,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "88c85c8d21eecff4",
+        "type": "function",
+        "z": "e0563d8b3e3f584c",
+        "name": "function 6",
+        "func": "msg.payload = msg.payload.value;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 940,
+        "y": 500,
+        "wires": [
+            [
+                "25520c7de87aafad"
+            ]
+        ]
+    },
+    {
+        "id": "25520c7de87aafad",
+        "type": "ui_chart",
+        "z": "e0563d8b3e3f584c",
+        "name": "",
+        "group": "5b2e0d550e98d9c2",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "label": "PM 10 History",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "12",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 1200,
+        "y": 500,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "fb417d091dd0eacd",
+        "type": "ui_gauge",
+        "z": "e0563d8b3e3f584c",
+        "name": "",
+        "group": "f8ae0a886764667f",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "UVB",
+        "label": "{{payload.unit}}",
+        "format": "{{payload.value}}",
+        "min": 0,
+        "max": "30",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 950,
+        "y": 820,
+        "wires": []
+    },
+    {
+        "id": "7626e9a395adc938",
+        "type": "function",
+        "z": "e0563d8b3e3f584c",
+        "name": "function 9",
+        "func": "msg.payload = msg.payload.value;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 930,
+        "y": 860,
+        "wires": [
+            [
+                "acb7b459ed0f7118"
+            ]
+        ]
+    },
+    {
+        "id": "acb7b459ed0f7118",
+        "type": "ui_chart",
+        "z": "e0563d8b3e3f584c",
+        "name": "",
+        "group": "f8ae0a886764667f",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "label": "UVB History",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "30",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 1230,
+        "y": 860,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "98c460153540b1ec",
+        "type": "ui_gauge",
+        "z": "e0563d8b3e3f584c",
+        "name": "",
+        "group": "25b8fff5b1d573a4",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Pressure",
+        "label": "{{paylaod.unit}}",
+        "format": "{{paylaod.value}}",
+        "min": "260",
+        "max": "1260",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 920,
+        "y": 1020,
+        "wires": []
+    },
+    {
+        "id": "77ebf2047197692c",
+        "type": "function",
+        "z": "e0563d8b3e3f584c",
+        "name": "function 12",
+        "func": "msg.payload = msg.payload.value;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 930,
+        "y": 1060,
+        "wires": [
+            [
+                "b28ccccbe05ca259"
+            ]
+        ]
+    },
+    {
+        "id": "b28ccccbe05ca259",
+        "type": "ui_chart",
+        "z": "e0563d8b3e3f584c",
+        "name": "",
+        "group": "25b8fff5b1d573a4",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "label": "Pressure History",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "260",
+        "ymax": "1260",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 1210,
+        "y": 1060,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "3e8eda49235e4100",
+        "type": "ui_gauge",
+        "z": "e0563d8b3e3f584c",
+        "name": "",
+        "group": "f8ae0a886764667f",
+        "order": 6,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "UV index",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "15",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 960,
+        "y": 900,
+        "wires": []
+    },
+    {
+        "id": "0f24ee5087d0b287",
+        "type": "function",
+        "z": "e0563d8b3e3f584c",
+        "name": "function 10",
+        "func": "msg.payload = msg.payload.value;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 950,
+        "y": 940,
+        "wires": [
+            [
+                "21e7443a8c67b1fc"
+            ]
+        ]
+    },
+    {
+        "id": "21e7443a8c67b1fc",
+        "type": "ui_chart",
+        "z": "e0563d8b3e3f584c",
+        "name": "",
+        "group": "f8ae0a886764667f",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "label": "Index History",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "15",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 1200,
+        "y": 940,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "ec43e21b89dc35e6",
+        "type": "function",
+        "z": "e0563d8b3e3f584c",
+        "name": "function 16",
+        "func": "if (msg.payload.value == 0)\n{\n    msg.payload = \"Indoors, no people\";\n} else {\n    msg.payload = \"Indoors with people\";\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 290,
+        "y": 560,
+        "wires": [
+            [
+                "dabae54ecba7f9e2"
+            ]
+        ]
+    },
+    {
+        "id": "dabae54ecba7f9e2",
+        "type": "ui_text",
+        "z": "e0563d8b3e3f584c",
+        "group": "3366541791141fc6",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Misurazioni",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "className": "",
+        "x": 430,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "6e31311973cef7bc",
+        "type": "mqtt-broker",
+        "name": "HiveMQ",
+        "broker": "broker.hivemq.com",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "eef7d8cff402365d",
+        "type": "ui_group",
+        "name": "Temperature",
+        "tab": "718aaf4b6b04d26d",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "f855aeea23398878",
+        "type": "ui_group",
+        "name": "Humidity",
+        "tab": "718aaf4b6b04d26d",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "df5a72af66c0a374",
+        "type": "ui_group",
+        "name": "CO2",
+        "tab": "718aaf4b6b04d26d",
+        "order": 3,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "5b2e0d550e98d9c2",
+        "type": "ui_group",
+        "name": "PM",
+        "tab": "718aaf4b6b04d26d",
+        "order": 4,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "3b55fd44616cf308",
+        "type": "ui_group",
+        "name": "CO",
+        "tab": "718aaf4b6b04d26d",
+        "order": 5,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "f8ae0a886764667f",
+        "type": "ui_group",
+        "name": "UV",
+        "tab": "718aaf4b6b04d26d",
+        "order": 6,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "25b8fff5b1d573a4",
+        "type": "ui_group",
+        "name": "Pressure",
+        "tab": "718aaf4b6b04d26d",
+        "order": 8,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "3366541791141fc6",
+        "type": "ui_group",
+        "name": "Temperature",
+        "tab": "",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "718aaf4b6b04d26d",
+        "type": "ui_tab",
+        "name": "Home",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    }
+]
